@@ -1,8 +1,8 @@
-#C++ CLI parser
+# C++ CLI parser
 
-##Guide
+## Guide
 
-###Creating the Main Object
+### Creating the Main Object
 To use the utility, you need to create the main object "CliParser":
 ```
 CliParser::CliParser(bool enableArgs = false);
@@ -11,7 +11,7 @@ The constructor takes a boolean parameter that indicates whether or not it shoul
 
 If this parameter is "false," then all simple arguments are rejected, which triggers an error.
 
-###Adding Options
+### Adding Options
 An option has several characteristics; it can be short or long, and may or may not require a value, and be optional or not. This gives rise to several types:
 ```
 enum optionType {
@@ -36,7 +36,7 @@ void CliParser::addOption(string longOption, bool optional, bool value);
 void CliParser::addOption(char shortOption, string longOption, bool optional, bool value);
 ```
 
-###Configuring Triggers
+### Configuring Triggers
 When all the options have been created, it is now necessary to define the functions that will be triggered when the tool encounters an option. There are 4. By default, they return "false":
 ```
 //trigger short option - no value
@@ -69,7 +69,7 @@ bool CliParser::triggerOption(char option) {
 }
 ```
 
-###Starting the Tool
+### Starting the Tool
 We can now analyze the arguments using this function:
 ```
 bool CliParser::parse(int argc, char const *argv[]);
@@ -77,7 +77,7 @@ bool CliParser::parse(int argc, char const *argv[]);
 
 At the slightest error, this function returns "false".
 
-###Extracting Simple Arguments
+### Extracting Simple Arguments
 If when creating the CliParser object, the constructor parameter is "true," then simple arguments are stored in an attribute:
 ```
 vector<string> arguments{};
