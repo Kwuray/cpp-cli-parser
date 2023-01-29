@@ -1,4 +1,4 @@
-#C++ CLI parser
+# C++ CLI parser
 
 ##Guide de fonctionnement
 
