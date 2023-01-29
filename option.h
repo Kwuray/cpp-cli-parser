@@ -16,17 +16,16 @@ class Option {
 private:
   char shortOption;
   string longOption{};
-  string description;
   bool optional; //if not, when the option is in the arguments, it become true
   optionType type;
 
 public:
   //constructor -- short option
-  Option(char shortOption, string description, bool optional, bool value);
+  Option(char shortOption, bool optional, bool value);
   //constructor -- long option
-  Option(string longOption, string description, bool optional, bool value);
+  Option(string longOption, bool optional, bool value);
   //constructor -- short and long option
-  Option(char shortOption, string longOption, string description, bool optional, bool value);
+  Option(char shortOption, string description, bool optional, bool value);
   //getter type
   optionType getType();
   //getter shortOption

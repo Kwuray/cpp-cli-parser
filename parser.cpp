@@ -37,18 +37,18 @@ vector<string>* CliParser::getArguments() {
 }
 
 //add short option
-void CliParser::addOption(char shortOption, string description, bool optional, bool value) {
-  this->options.push_back(Option(shortOption, description, optional, value));
+void CliParser::addOption(char shortOption, bool optional, bool value) {
+  this->options.push_back(Option(shortOption, optional, value));
 }
 
 //add long option
-void CliParser::addOption(string longOption, string description, bool optional, bool value) {
-  this->options.push_back(Option(longOption, description, optional, value));
+void CliParser::addOption(string longOption, bool optional, bool value) {
+  this->options.push_back(Option(longOption, optional, value));
 }
 
 //add short and long option
-void CliParser::addOption(char shortOption, string longOption, string description, bool optional, bool value) {
-  this->options.push_back(Option(shortOption, longOption, description, optional, value));
+void CliParser::addOption(char shortOption, string longOption, bool optional, bool value) {
+  this->options.push_back(Option(shortOption, longOption, optional, value));
 }
 
 //is option registred ?

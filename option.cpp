@@ -3,26 +3,23 @@
 using namespace std;
 
 //constructor -- short option
-Option::Option(char shortOption, string description, bool optional, bool value) {
+Option::Option(char shortOption, bool optional, bool value) {
   this->shortOption = shortOption;
-  this->description = description;
   this->setOptional(optional);
   this->type = value ? OPTION_SHORT_VALUE : OPTION_SHORT;
 }
 
 //constructor -- long option
-Option::Option(string longOption, string description, bool optional, bool value) {
+Option::Option(string longOption, bool optional, bool value) {
   this->longOption = longOption;
-  this->description = description;
   this->setOptional(optional);
   this->type = value ? OPTION_LONG_VALUE : OPTION_LONG;
 }
 
 //constructor -- short and long option
-Option::Option(char shortOption, string longOption, string description, bool optional, bool value) {
+Option::Option(char shortOption, string longOption, bool optional, bool value) {
   this->shortOption = shortOption;
   this->longOption = longOption;
-  this->description = description;
   this->setOptional(optional);
   this->type = value ? OPTION_SHORT_LONG_VALUE : OPTION_SHORT_LONG;
 }

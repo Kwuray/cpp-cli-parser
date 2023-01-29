@@ -35,11 +35,11 @@ public:
   //getter arguments
   vector<string>* getArguments();
   // add short option
-  void addOption(char shortOption, string description, bool optional, bool value);
+  void addOption(char shortOption, bool optional, bool value);
   // add long option
-  void addOption(string longOption, string description, bool optional, bool value);
+  void addOption(string longOption, bool optional, bool value);
   // add short and long option
-  void addOption(char shortOption, string longOption, string description, bool optional, bool value);
+  void addOption(char shortOption, string longOption, bool optional, bool value);
   //parse arguments
   bool parse(int argc, char const *argv[]);
 };
