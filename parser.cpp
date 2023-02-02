@@ -148,7 +148,12 @@ bool CliParser::parse(int argc, char const *argv[]) {
               return false;
             }
           } else {
-            //the value is after the flag
+            //the value should be after the flag
+            if (argvS[argIndex].substr(2) == "") {
+              this->setHint("Please provide a value.");
+              this->invalid(argvS[argIndex][1], argIndex + 1);
+              return false;
+            }
             if (!this->triggerOption(this, argvS[argIndex][1], argvS[argIndex].substr(2))) {
               this->invalid(argvS[argIndex][1], argIndex + 1);
               return false;
