@@ -12,22 +12,22 @@ CliParser::CliParser(bool enableArgs) {
 
 //by default, trigger return false
 //trigger short option - no value
-inline bool CliParser::triggerOption(char option) {
+inline bool CliParser::triggerOption(CliParser *parser, char option) {
   return false;
 }
 
 //trigger short option - value
-inline bool CliParser::triggerOption(char option, string value) {
+inline bool CliParser::triggerOption(CliParser *parser, char option, string value) {
   return false;
 }
 
 //trigger long option - no value
-inline bool CliParser::triggerOption(string option) {
+inline bool CliParser::triggerOption(CliParser *parser, string option) {
   return false;
 }
 
 //trigger long option - value
-inline bool CliParser::triggerOption(string option, string value) {
+inline bool CliParser::triggerOption(CliParser *parser, string option, string value) {
   return false;
 }
 
@@ -129,7 +129,7 @@ bool CliParser::parse(int argc, char const *argv[]) {
         //short option no value
         case OPTION_SHORT:
         case OPTION_SHORT_LONG:
-          if (!this->triggerOption(shortOption)) {
+          if (!this->triggerOption(this, shortOption)) {
             this->invalid(shortOption, argIndex + 1);
             return false;
           }
@@ -142,14 +142,14 @@ bool CliParser::parse(int argc, char const *argv[]) {
           if (potentialArgValueIndex < argvS.size() && (argvS[potentialArgValueIndex].size() > 2 && argvS[potentialArgValueIndex][0] != '-')) {
             string value = argvS[potentialArgValueIndex];
             //the value is the next arg, we are sure
-            if (!this->triggerOption(shortOption, value)) {
+            if (!this->triggerOption(this, shortOption, value)) {
               //trigger failed
               this->invalid(shortOption, argIndex + 1);
               return false;
             }
           } else {
             //the value is after the flag
-            if (!this->triggerOption(argvS[argIndex][1], argvS[argIndex].substr(2))) {
+            if (!this->triggerOption(this, argvS[argIndex][1], argvS[argIndex].substr(2))) {
               this->invalid(argvS[argIndex][1], argIndex + 1);
               return false;
             }
@@ -182,7 +182,7 @@ bool CliParser::parse(int argc, char const *argv[]) {
           this->invalid(option, argIndex + 1);
           return false;
         }
-        if (!this->triggerOption(option)) {
+        if (!this->triggerOption(this, option)) {
           this->invalid(option, argIndex + 1);
           return false;
         }
@@ -196,7 +196,7 @@ bool CliParser::parse(int argc, char const *argv[]) {
           this->invalid(option, argIndex + 1);
           return false;
         }
-        if (!this->triggerOption(option, value)) {
+        if (!this->triggerOption(this, option, value)) {
           this->invalid(option, argIndex + 1);
           return false;
         }

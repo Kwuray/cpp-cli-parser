@@ -12,13 +12,13 @@ private:
   vector<string> arguments{};
   string hint{};
   //trigger short option - no value
-  bool triggerOption(char option);
+  bool triggerOption(CliParser *parser, char option);
   //trigger short option - value
-  bool triggerOption(char option, string value);
+  bool triggerOption(CliParser *parser, char option, string value);
   //trigger long option - no value
-  bool triggerOption(string option);
+  bool triggerOption(CliParser *parser, string option);
   //trigger long option - value
-  bool triggerOption(string option, string value);
+  bool triggerOption(CliParser *parser, string option, string value);
   //is option registred ? return -1 if not
   int isOptionKnown(char option);
   //is option registred ? return -1 if not

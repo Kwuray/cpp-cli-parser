@@ -40,22 +40,22 @@ void CliParser::addOption(char shortOption, string longOption, bool optional, bo
 When all the options have been created, it is now necessary to define the functions that will be triggered when the tool encounters an option. There are 4. By default, they return "false":
 ```
 //trigger short option - no value
-bool CliParser::triggerOption(char option);
+bool CliParser::triggerOption(CliParser *parser, char option);
 
 //trigger short option - value
-bool CliParser::triggerOption(char option, string value);
+bool CliParser::triggerOption(CliParser *parser, char option, string value);
 
 //trigger long option - no value
-bool CliParser::triggerOption(string option);
+bool CliParser::triggerOption(CliParser *parser, string option);
 
 //trigger long option - value
-bool CliParser::triggerOption(string option, string value);
+bool CliParser::triggerOption(CliParser *parser, string option, string value);
 ```
 
 For example, to set the trigger on short options without value (aka "flags"):
 ```
 //trigger short option - no value
-bool CliParser::triggerOption(char option) {
+bool CliParser::triggerOption(CliParser *parser, char option) {
   switch (option) {
     case 'c':
       /*do something...*/
