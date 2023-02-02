@@ -1,5 +1,5 @@
-#include "parser.h"
-#include "option.h"
+#include "parser.hpp"
+#include "option.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
