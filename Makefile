@@ -12,7 +12,7 @@ MAIN_OBJ_PATH = bin/
 SRC_FILES_MAIN = $(wildcard $(MAIN_SRC_PATH)*.cpp)
 OBJ_FILES_MAIN = $(SRC_FILES_MAIN:$(MAIN_SRC_PATH)%.cpp=$(MAIN_OBJ_PATH)%.o)
 #recipes
-$(MAIN_OBJ_PATH)%.o : $(MAIN_SRC_PATH)%.cpp $(MAIN_SRC_PATH)%.h
+$(MAIN_OBJ_PATH)%.o : $(MAIN_SRC_PATH)%.cpp $(MAIN_SRC_PATH)%.hpp
 	$(CC) -o $@ -c $< $(PARAMS)
 
 $(MAIN_OBJ_PATH)main.o : $(MAIN_SRC_PATH)main.cpp

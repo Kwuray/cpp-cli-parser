@@ -84,5 +84,11 @@ vector<string> arguments{};
 ```
 Vous pouvez y accéder à tout moment à l'aide de cette fonction :
 ```
-vector<string>* CliParser::getArguments()
+vector<string>* CliParser::getArguments();
+```
+
+### Messages d'aide
+Le message d'aide s'ajoute lorsque vous allez retourner "false" lors d'une fonction trigger. Ainsi, ce message sera affiché automatiquement.
+```
+CliParser::setHint(string hint);
 ```

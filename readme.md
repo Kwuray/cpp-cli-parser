@@ -84,5 +84,10 @@ vector<string> arguments{};
 ```
 You can access it at any time using this function:
 ```
-vector<string>* CliParser::getArguments()
+vector<string>* CliParser::getArguments();
+```
+### add hint
+The hint message is added when you return "false" in a trigger function. This way, the message will be displayed automatically.
+```
+CliParser::setHint(string hint);
 ```

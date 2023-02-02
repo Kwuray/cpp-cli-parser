@@ -1,6 +1,6 @@
 #ifndef CLI_PARSER_H
 #define CLI_PARSER_H
-#include "option.h"
+#include "option.hpp"
 #include <string>
 #include <vector>
 using namespace std;
@@ -10,6 +10,7 @@ private:
   bool enableArgs;
   vector<Option> options{};
   vector<string> arguments{};
+  string hint{};
   //trigger short option - no value
   bool triggerOption(char option);
   //trigger short option - value
@@ -42,6 +43,8 @@ public:
   void addOption(char shortOption, string longOption, bool optional, bool value);
   //parse arguments
   bool parse(int argc, char const *argv[]);
+  //setter hint
+  void setHint(string hint);
 };
 
 #endif

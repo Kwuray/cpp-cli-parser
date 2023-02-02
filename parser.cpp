@@ -74,11 +74,19 @@ int CliParser::isOptionKnown(string option) {
 //invalid argument
 void CliParser::invalid(string argument, int position) {
   std::cout << "Invalid argument : \"" << argument << "\" at position " << position  << '\n';
+  if (this->hint != "") {
+    //display hint
+    std::cout << this->hint << '\n';
+  }
 }
 
 //invalid argument
 void CliParser::invalid(char argument, int position) {
   std::cout << "Invalid argument : \"" << argument << "\" at position " << position  << '\n';
+  if (this->hint != "") {
+    //display hint
+    std::cout << this->hint << '\n';
+  }
 }
 
 //check if there is one non-optional option
@@ -211,4 +219,10 @@ bool CliParser::parse(int argc, char const *argv[]) {
     return false;
   }
   return true;
+}
+
+//setter hint
+void CliParser::setHint(string hint) {
+  //yellow hint
+  this->hint = "\x1B[32mhint : " + hint + "\x1B[0m";
 }
