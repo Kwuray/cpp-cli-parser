@@ -224,5 +224,5 @@ bool CliParser::parse(int argc, char const *argv[]) {
 //setter hint
 void CliParser::setHint(string hint) {
   //yellow hint
-  this->hint = "\x1B[32mhint : " + hint + "\x1B[0m";
+  this->hint = "\x1B[33mhint : " + hint + "\x1B[0m";
 }
